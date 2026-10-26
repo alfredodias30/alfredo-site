@@ -523,3 +523,7 @@ mark {
 
 /* sections with their own grain layer get a flat paper so grain isn't doubled */
 .hero, .cv { background: var(--paper); }
+.strip img,
+.marquee img {
+  max-width: none;
+}
