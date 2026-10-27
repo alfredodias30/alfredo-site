@@ -248,15 +248,14 @@
 
   /* ---------- copy e-mail ---------- */
   document.querySelectorAll('[data-copy]').forEach(b => {
-    const label = b.textContent;
     b.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(b.dataset.copy);
-        b.textContent = 'E-mail copiado';
+        b.textContent = window.I18N ? I18N.t('copied') : 'E-mail copiado';
       } catch {
         b.textContent = b.dataset.copy;
       }
-      setTimeout(() => { b.textContent = label; }, 2200);
+      setTimeout(() => { b.textContent = window.I18N ? I18N.label(b) : 'Copiar e-mail'; }, 2200);
     });
   });
 })();
